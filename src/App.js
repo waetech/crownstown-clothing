@@ -12,8 +12,9 @@ import CheckoutPage from './pages/checkout/checkout.component';
 import Header from './components/header/header.component';
 import {selectCurrentUser} from './redux/user/user.selectors';
 
-import { auth, createUserProfileDocument} from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import {setCurrentUser} from './redux/user/user.actions'; 
+
 
 
 
@@ -23,7 +24,7 @@ class App extends React.Component {
   
 
 componentDidMount() {
-  const {setCurrentUser} = this.props;
+  const { setCurrentUser } = this.props;
 
   auth.onAuthStateChanged(async userAuth => {
     if (userAuth){
@@ -39,7 +40,7 @@ componentDidMount() {
       });
    }
 setCurrentUser(userAuth);
-    
+   
   });
 }
 
